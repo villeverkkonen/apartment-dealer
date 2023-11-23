@@ -18,7 +18,7 @@
             </nav>
         </header>
         <div class="p-4">
-            {{ selectedHouse }}
+            <ApartmentContainer :house="selectedHouse" />
         </div>
     </div>
 </template>
@@ -26,6 +26,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import { HouseOptions } from '~/store/apartment'
+import ApartmentContainer from '~/components/ApartmentContainer.vue'
 
 export default Vue.extend({
     name: 'ApartmentsPage',
@@ -40,5 +41,8 @@ export default Vue.extend({
             this.selectedHouse = value
         },
     },
+    components: {
+        ApartmentContainer,
+    }
 })
 </script>
