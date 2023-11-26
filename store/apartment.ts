@@ -3,25 +3,30 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
-export enum HouseOptions {
+export enum ApartmentType {
   BLOCK_OF_FLATS = 'blockOfFlats',
   TERRACED_HOUSES = 'terracedHouses',
   TOWN_HOUSES = 'townHouses',
 }
 
-interface HouseState {
-  selectedHouse: HouseOptions;
+interface SelectedApartmentState {
+  selectedApartmentType: ApartmentType;
+  fetchedData: any[];
 }
 
-const store = new Vuex.Store<HouseState>({
-  state: {
-    selectedHouse: HouseOptions.BLOCK_OF_FLATS,
-  },
-  mutations: {
-    setSelectedHouse(state, value: HouseOptions) {
-      state.selectedHouse = value
-    },
-  },
-})
+export const state: SelectedApartmentState = {
+  selectedApartmentType: ApartmentType.BLOCK_OF_FLATS,
+  fetchedData: [],
+}
 
-export default store
+export const mutations = {
+  setSelectedApartmentType(state: SelectedApartmentState, value: ApartmentType) {
+    console.log(`setSelectedApartmentType: ${value}`)
+    state.selectedApartmentType = value
+  },
+  updateFetchedData(state: SelectedApartmentState, data: any[]) {
+    console.log(`updateFetchedData:`)
+    console.log(data)
+    state.fetchedData = data;
+  },
+}
