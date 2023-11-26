@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[3],{272:function(n,t,e){"use strict";e.r(t);var l={name:"Frontpage"},r=e(30),component=Object(r.a)(l,(function(){return(0,this._self._c)("div",{staticClass:"p-4 sm:ml-64"},[this._v("\n  Apartment Dealer\n")])}),[],!1,null,null,null);t.default=component.exports}}]);

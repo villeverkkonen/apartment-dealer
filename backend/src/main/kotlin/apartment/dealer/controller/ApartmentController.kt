@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 class ApartmentController {
-  @GetMapping("/")
+  @GetMapping("/api/apartments")
   fun index(): String =
     "Hello World"
 }
