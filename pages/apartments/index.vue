@@ -41,7 +41,6 @@ export default Vue.extend({
     },
     methods: {
         fetchData() {
-            console.log('START FETCH')
             fetch(`http://localhost:8080/api/apartments?apartmentType=${this.selectedApartmentType}`, {
                 method: 'GET',
             })

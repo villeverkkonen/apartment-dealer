@@ -21,12 +21,9 @@ export const state: SelectedApartmentState = {
 
 export const mutations = {
   setSelectedApartmentType(state: SelectedApartmentState, value: ApartmentType) {
-    console.log(`setSelectedApartmentType: ${value}`)
     state.selectedApartmentType = value
   },
   updateFetchedData(state: SelectedApartmentState, data: any[]) {
-    console.log(`updateFetchedData:`)
-    console.log(data)
     state.fetchedData = data;
   },
 }
