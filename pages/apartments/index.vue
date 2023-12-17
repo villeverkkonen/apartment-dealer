@@ -40,29 +40,19 @@ export default Vue.extend({
         ...mapState('apartment', ['selectedApartmentType']),
     },
     methods: {
-        fetchData() {
-            fetch(`http://localhost:8080/api/apartments?apartmentType=${this.selectedApartmentType}`, {
-                method: 'GET',
-            })
-                .then(response => {
-                    response.json().then(res => {
-                        this.$store.commit('apartment/updateFetchedData', res);
-                    })
-                })
-                .catch(err => {
-                    console.log(err)
-                })
+        async fetchApartments() {
+            await this.$store.dispatch('apartment/fetchApartments')
         },
-        setSelectedApartmentType(value: ApartmentType) {
+        async setSelectedApartmentType(value: ApartmentType) {
             this.$store.commit('apartment/setSelectedApartmentType', value)
-            this.fetchData()
+            await this.fetchApartments()
         },
     },
     components: {
         ApartmentContainer,
     },
     created() {
-        console.log(this.selectedApartmentType)
+        this.fetchApartments()
     },
 })
 </script>

@@ -37,5 +37,14 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
 
-  target: 'static',
+  target: 'server',
+
+  serverMiddleware: [
+    { path: '/api', handler: '~/server-middleware/backend.ts' }
+  ],
+
+  server: {
+    port: 3000,
+    host: '0.0.0.0',
+  },
 }

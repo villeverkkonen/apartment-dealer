@@ -1,6 +1,6 @@
 export const mockBlockOfFlats = [
     {
-        street_address: 'Flatstreet 1',
+        street_address: 'Flatstreet 1 asd',
         city: 'Flat City',
     },
     {

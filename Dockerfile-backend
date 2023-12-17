@@ -1,0 +1,18 @@
+FROM gradle:latest AS builder
+
+WORKDIR /app
+
+COPY ./backend .
+
+RUN gradle build
+
+FROM openjdk:11-jre-slim
+
+WORKDIR /app
+
+COPY --from=builder /app/build/libs/backend-0.0.1-SNAPSHOT.jar /app/backend-0.0.1-SNAPSHOT.jar
+
+EXPOSE 8080
+
+# Command to run the backend application
+CMD ["java", "-jar", "backend-0.0.1-SNAPSHOT.jar"]

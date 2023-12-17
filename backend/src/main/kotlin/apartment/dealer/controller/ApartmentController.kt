@@ -18,8 +18,8 @@ class ApartmentController {
   private fun generateListOfDummyApartments(apartmentType: String): List<Apartment> =
     listOf(
       Apartment(
-        streetAddress = "$apartmentType Street 1",
-        city = "$apartmentType City 1",
+        streetAddress = "$apartmentType Street 1 LOL OMG",
+        city = "$apartmentType City 1 LOL OMG ROFL",
       ),
       Apartment(
         streetAddress = "$apartmentType Street 2",

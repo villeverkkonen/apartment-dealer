@@ -1,8 +1,13 @@
 <template>
     <div>
         {{ selectedApartmentType }}
-        <div v-for="(item) in fetchedData" :key="item.street_address">
-            {{ item.street_address }}
+        <div v-if="selectedApartmentType && fetchedApartments.length > 0">
+            <div v-for="(item) in fetchedApartments" :key="item.streetAddress">
+                {{ item.streetAddress }}
+            </div>
+        </div>
+        <div v-else>
+            Loading...
         </div>
     </div>
 </template>
@@ -21,8 +26,10 @@ export default {
         },
     },
     computed: {
-        ...mapState('apartment', ['selectedApartmentType']),
-        ...mapState('apartment', ['fetchedData']),
+        ...mapState('apartment', ['selectedApartmentType', 'apartments']),
+        fetchedApartments() {
+            return this.apartments || [];
+        },
     },
 }
 </script>
